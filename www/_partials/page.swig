@@ -1,0 +1,26 @@
+<!doctype html>
+<!--[if lt IE 7 ]> <html class="ie6 lteie7 lteie8 lteie9" lang="en"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7 lteie7 lteie8 lteie9" lang="en"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8 lteie8 lteie9" lang="en"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie9 lteie9" lang="en"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+	<title></title>
+	<link rel="stylesheet" href="/styles.css" />
+	{% block css-page-specific %}{% endblock %}
+	<!-- build:css /styles/lib.css -->
+	<!-- bower:css --><!-- endbower -->
+	<!-- endbuild -->
+	<script data-main="/modules/main.js" src="/bower_components/requirejs/require.js"></script>
+	{% block js-head-page-specific %}{% endblock %}
+</head>
+<body>
+	{% block body-top %}{% endblock %}
+	{% block body-content %}{% endblock %}
+	<!-- build:js /scripts/lib.js -->
+	<!-- bower:js --><!-- endbower --><!-- endbuild -->
+	<!-- build:js /scripts/app.js -->
+	<!-- endbuild -->
+	{% block js-foot-page-specific %}{% endblock %}
+</body>
+</html>

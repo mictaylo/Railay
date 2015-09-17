@@ -1,0 +1,41 @@
+/**
+ *
+ * Float Clearing
+ *
+**/
+
+.clear {
+	clear: both;
+}
+
+.clearfix:after {
+	@extend .clear;
+	content: ' ';
+	display: block;
+}
+
+/**
+ *
+ * Visibility
+ *
+**/
+
+.hide {
+	display: none !important;
+}
+
+.invisible {
+	visibility: hidden !important;
+}
+
+/**
+ *
+ * Disable Wrapping Around Floats
+ *
+ * Stops an element from wrapping around another floated element
+ *
+**/
+
+.disable-floatwrap {
+	display: table;
+}

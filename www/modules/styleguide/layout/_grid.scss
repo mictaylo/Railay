@@ -1,0 +1,73 @@
+.#{$layout-col-prefix} {
+	float: left;
+	word-wrap:break-word;
+	padding: 0 $layout-gutter;
+}
+
+.#{$layout-col-prefix}-right {
+	@extend .#{$layout-col-prefix};
+	float: right;
+}
+
+@for $i from 0 to length($layout-grids) {
+	.#{$layout-row-prefix}-#{nth($layout-grids, $i+1)} {
+		clear:both;
+		padding: 0;
+		list-style: none;
+		margin: 0 -$layout-gutter;
+	}
+
+	.#{$layout-row-prefix}-#{nth($layout-grids, $i+1)}:after {
+		@extend .clearfix:after;
+	}
+}
+
+@include loop-grids($layout-grids, null);
+
+@media only screen and ( min-width: #{$layout-bp-xl-min}px ) {
+	@include loop-grids($layout-grids, 'xl');
+
+	.xl-#{$layout-col-prefix}-right {
+		float: right;
+	}
+}
+
+@media only screen and ( max-width: #{$layout-bp-lg-min - 1}px ) {
+	@include loop-grids($layout-grids, 'md');
+
+	.md-#{$layout-col-prefix}-right {
+		float: right;
+	}
+}
+
+@media only screen and ( max-width: #{$layout-bp-md-min - 1}px ) { /* Large */
+	@include loop-grids($layout-grids, 'sm');
+
+	.sm-#{$layout-col-prefix}-right,
+	.md-#{$layout-col-prefix}-right {
+		float: right;
+	}
+}
+
+@media only screen and ( max-width: #{$layout-bp-sm-min - 1}px ) {
+
+	.xs-#{$layout-col-prefix}-reset {
+		display: block;
+		float: none;
+		width: auto !important;
+	}
+
+	.#{$layout-col-prefix}-right,
+	.sm-#{$layout-col-prefix}-right,
+	.md-#{$layout-col-prefix}-right {
+		@extend .xs-#{$layout-col-prefix}-reset;
+	}
+
+	@for $i from 0 to length($layout-grids) {
+		.#{$layout-row-prefix}-#{nth($layout-grids, $i+1)},
+		.#{$layout-row-prefix}-#{nth($layout-grids, $i+1)} > .#{$layout-col-prefix},
+		.#{$layout-row-prefix}-#{nth($layout-grids, $i+1)} > .#{$layout-col-prefix}-right {
+			@extend .xs-#{$layout-col-prefix}-reset;
+		}
+	}
+}

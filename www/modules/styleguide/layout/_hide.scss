@@ -1,0 +1,38 @@
+/* Print not supported in IE8, needs a seperate stylesheet */
+.lteie8 {
+	.xs-only,
+	.xs-gte-hide,
+	.sm-only,
+	.sm-gte-hide,
+	.md-only,
+	.md-gte-hide,
+	.lg-hide,
+	.lg-gte-hide,
+	.lg-lte-hide,
+	.xl-hide,
+	.xl-lte-hide {
+		@extend .hide;
+	}
+}
+
+@media print {
+	.pr-hide {
+		display: none !important;
+	}
+}
+
+@media only screen and ( min-width: #{$layout-bp-lg-min - 1}px ) and ( max-width: #{$layout-bp-xl-min - 1}px ) { /* Large */
+	.pr-only, .xs-only, .sm-only, .md-only, .xl-only, .lg-hide, .md-gte-hide, .sm-gte-hide, .xs-gte-hide, .lg-gte-hide, .lg-lte-hide, .xl-lte-hide { display: none !important; }
+}
+@media only screen and ( min-width: #{$layout-bp-xl-min}px ) { /* Extra Large */
+	.pr-only, .xs-only, .sm-only, .md-only, .xl-hide, .md-gte-hide, .sm-gte-hide, .xs-gte-hide, .lg-gte-hide, .lg-lte-hide .xl-gte-hide, .xl-lte-hide { display: none !important; }
+}
+@media only screen and ( min-width: #{$layout-bp-md-min - 1}px ) and ( max-width: #{$layout-bp-lg-min - 1}px ) { /* Med */
+	.pr-only, .xs-only, .sm-only, .lg-only, .xl-only, .md-hide, .md-gte-hide, .md-lte-hide, .sm-gte-hide, .xs-gte-hide, .lg-lte-hide, .xl-lte-hide { display: none !important; }
+}
+@media only screen and ( min-width: #{$layout-bp-sm-min - 1}px ) and ( max-width: #{$layout-bp-md-min - 1}px ) { /* Small */
+	.pr-only, .xs-only, .md-only, .lg-only, .xl-only, .sm-hide, .md-lte-hide, .sm-gte-hide, .sm-lte-hide, .xs-gte-hide, .lg-lte-hide, .xl-lte-hide { display: none !important; }
+}
+@media only screen and ( max-width: #{$layout-bp-sm-min - 1}px ) { /* XSmall */
+	.pr-only, .sm-only, .md-only, .lg-only, .xl-only, .xs-hide, .md-lte-hide, .sm-lte-hide, .xs-gte-hide, .xs-lte-hide, .lg-lte-hide, .xl-lte-hide { display: none !important; }
+}

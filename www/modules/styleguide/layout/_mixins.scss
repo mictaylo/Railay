@@ -1,0 +1,32 @@
+@mixin loop-grid-columns($columns, $breakpoint) {
+	$class-prefix: '.';
+	@if($breakpoint) {
+		$class-prefix: #{$class-prefix}#{$breakpoint}-;
+	}
+
+	@for $i from 0 through $columns {
+		@if($i > 0) {
+			.#{$layout-row-prefix}-#{$columns} > #{$class-prefix}span-#{$i} {
+				width: ($i / $columns) * 100%;
+			}
+		}
+
+		.#{$layout-row-prefix}-#{$columns} > #{$class-prefix}offset-#{$i} {
+			margin-left: ($i / $columns) * 100%;
+		}
+
+		.#{$layout-row-prefix}-#{$columns} > #{$class-prefix}push-#{$i} {
+			left: ($i / $columns) * 100%;
+		}
+
+		.#{$layout-row-prefix}-#{$columns} > #{$class-prefix}pull-#{$i} {
+			right: -($i / $columns) * 100%;
+		}
+	}
+}
+
+@mixin loop-grids($grids, $breakpoint) {
+	@for $i from 0 to length($grids) {
+		@include loop-grid-columns(nth($grids, $i+1), $breakpoint);
+	}
+}
