@@ -1,10 +1,10 @@
 ## Environment Features
 - Linting/Code Style
 	- IDE
-		- `[X]` [.editorconfig](http://editorconfig.org/)
+		- [.editorconfig](http://editorconfig.org/)
 		- [Sublime Text Plugin](https://github.com/sindresorhus/editorconfig-sublime)
 	- Javascript
-		- `[X]` [.eslintrc](http://eslint.org/)
+		- [.eslintrc](http://eslint.org/)
 		- [Submlime Text Plugin](https://github.com/roadhump/SublimeLinter-eslint)
 - [Karma](http://karma-runner.github.io/0.13/index.html) + [Jasmine](http://jasmine.github.io/)
 - [gulp](http://gulpjs.com/)
