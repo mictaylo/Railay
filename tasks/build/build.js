@@ -8,7 +8,7 @@ module.exports = function (gulp, config, $) {
 		runSequence(
 			['del-dist'],
 			['copy-src-to-dist', 'copy-bower-to-dist'],
-			['sass', 'babel', 'requirejs-optimize'],
+			['sass', 'babel'],
 			callback
 		);
 	});
@@ -52,7 +52,7 @@ module.exports = function (gulp, config, $) {
 		runSequence(
 			['del-dist'],
 			['copy-src-to-dist', 'copy-bower-to-dist'],
-			['sass', 'babel', 'requirejs-optimize'],
+			['sass', 'babel'],
 			'build-dist-final',
 			callback
 		);
