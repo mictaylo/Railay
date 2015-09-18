@@ -3,8 +3,10 @@
 /* global requirejs */
 requirejs.config({
 	shim: {
-		'jquery': {
-			deps: [],
+		jquery: {
+			deps: [
+
+			],
 			exports: 'jQuery'
 		}
 	},

@@ -33,12 +33,12 @@
 define(['jquery'], function ($) {
 
 	// find components on the page
-	function run (target, data_selector, event_namespace) {
+	function run (target, dataSelector, eventNamespace) {
 
 		var $target = target ? $(target) : null;
 
-		var $containers = target ? $target.find('[data-' + data_selector + ']') : $('[data-' + data_selector + ']');
-		if (target && $target.data(data_selector)) {
+		var $containers = target ? $target.find('[data-' + dataSelector + ']') : $('[data-' + dataSelector + ']');
+		if (target && $target.data(dataSelector)) {
 			$.merge($containers, $target);
 		}
 
@@ -46,30 +46,30 @@ define(['jquery'], function ($) {
 		$containers.each(function (i, container) {
 
 			var $container  = $(container);
-			var module_type = $container.data(data_selector);
+			var moduleType = $container.data(dataSelector);
 
-			if ($container.data(data_selector + '-loading') || $container.data(data_selector + '-loaded')) {
+			if ($container.data(dataSelector + '-loading') || $container.data(dataSelector + '-loaded')) {
 				return;
 			} else {
-				$container.data(data_selector + '-loading', true);
+				$container.data(dataSelector + '-loading', true);
 			}
 
-			$.each(module_type.split(' '), function (i, type) {
+			$.each(moduleType.split(' '), function (iType, type) {
 
-				$container.trigger('loading.' + event_namespace, [type, $container]);
+				$container.trigger('loading.' + eventNamespace, [type, $container]);
 
 				require([type], function (module) {
 
 					try {
 						module.run(container);
 					} catch (err) {
-						$container.trigger('run_error.' + event_namespace, [type, $container, err]);
+						$container.trigger('run_error.' + eventNamespace, [type, $container, err]);
 					}
 
 					$container
-						.data(data_selector + '-loading', '')
-						.data(data_selector + '-loaded', true)
-						.trigger('loaded.' + event_namespace, [type, $container]);
+						.data(dataSelector + '-loading', '')
+						.data(dataSelector + '-loaded', true)
+						.trigger('loaded.' + eventNamespace, [type, $container]);
 				});
 			});
 
@@ -79,27 +79,27 @@ define(['jquery'], function ($) {
 
 	var methods = {
 
-		setup: function (data_selector, event_namespace) {
+		setup: function (dataSelector, eventNamespace) {
 
-			if (!data_selector) {
-				data_selector = 'clockwork-module';
+			if (!dataSelector) {
+				dataSelector = 'clockwork-module';
 			}
 
-			if (!event_namespace) {
-				event_namespace = '.cw.module';
+			if (!eventNamespace) {
+				eventNamespace = '.cw.module';
 			}
 
 			$(document).ready(function () {
 
 				$('body')
-					.on('loaded' + event_namespace, function (evt) {
-						run(evt.target, data_selector, event_namespace);
+					.on('loaded' + eventNamespace, function (evt) {
+						run(evt.target, dataSelector, eventNamespace);
 					})
-					.on('load' + event_namespace, function (evt) {
-						run(evt.target, data_selector, event_namespace);
+					.on('load' + eventNamespace, function (evt) {
+						run(evt.target, dataSelector, eventNamespace);
 					});
 
-				run(null, data_selector, event_namespace);
+				run(null, dataSelector, eventNamespace);
 			});
 
 		},
