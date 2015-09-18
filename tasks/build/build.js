@@ -7,14 +7,14 @@ module.exports = function (gulp, config, $) {
 
 		runSequence(
 			['del-dist'],
-			['copy-src-to-dist', 'copy-bower-to-dist'],
+			['copy-src-to-dist'],
 			['sass', 'babel'],
 			callback
 		);
 	});
 
 	gulp.task('build-dist-final', function (callback) {
-		var assets = $.useref.assets({searchPath: ['dist']});
+		var assets = $.useref.assets({searchPath: ['.']});
 		var cssFilter = $.filter(['**/*.css']);
 		var jsFilter = $.filter('**/*.js');
 		var cache = require('gulp-cached');
@@ -24,7 +24,7 @@ module.exports = function (gulp, config, $) {
 			.src(config.build.src)
 			//.pipe($.print())
 			.pipe(assets)
-			//.pipe($.print())
+			.pipe($.print())
 			.pipe(sourcemaps.init())
 			.pipe(cache('compile-assets'))
 			.pipe(cssFilter)
@@ -51,7 +51,7 @@ module.exports = function (gulp, config, $) {
 
 		runSequence(
 			['del-dist'],
-			['copy-src-to-dist', 'copy-bower-to-dist'],
+			['copy-src-to-dist'],
 			['sass', 'babel'],
 			'build-dist-final',
 			callback

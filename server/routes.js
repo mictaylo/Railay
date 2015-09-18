@@ -19,6 +19,7 @@ module.exports = function (app, express, config) {
 		res.send('403').end();
 	});
 
+	app.use('/bower_components', express.static(config.bower.directory));
 	app.use('/', express.static(config.server.www_root + '/'));
 
 	app.get('*', function (req, res) {
