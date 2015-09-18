@@ -6,11 +6,11 @@
 <!--[if (gt IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
 <head>
 	<title></title>
+	<!-- build:css /styles/lib.css -->
+	<link href="/bower_components/normalize.css/normalize.css" rel="stylesheet" />
+	<!-- endbuild -->
 	<link rel="stylesheet" href="/styles.css" />
 	{% block css-page-specific %}{% endblock %}
-	<!-- build:css /styles/lib.css -->
-		<link href="/bower_components/normalize.css/normalize.css" rel="stylesheet" />
-	<!-- endbuild -->
 	<script data-main="/modules/main.js" src="/bower_components/requirejs/require.js"></script>
 	{% block js-head-page-specific %}{% endblock %}
 </head>
