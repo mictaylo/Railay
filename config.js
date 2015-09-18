@@ -102,7 +102,8 @@ module.exports = function (environment) {
 			//config.paths.destination + '**/*.es6*.js'
 		),
 		sourceFiles: [].concat(
-			wiredep({devDependencies: true}).js,
+			//wiredep({devDependencies: true}).js,
+			{pattern: config.bower.directory + '**/*.js', included: false},
 			config.paths.destination + '!(bower_components|modules)/**/!(*.spec)+(.js)',
 			{pattern: config.paths.destination + 'modules/**/*.js', included: false},
 			base + 'karma.require.js'
