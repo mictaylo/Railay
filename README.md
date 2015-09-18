@@ -17,7 +17,10 @@
 	- Karma/Jasmin is configured to test Javascript in the /modules folder as RequireJS modules
 
 ## Features Wish List
+- [PostCSS](https://github.com/postcss/postcss)
+	- Consider: Replace SASS (libsass) for a performance increase.
 - [Webpack](https://webpack.github.io/)
+- [Bower Shrinkwrap/Lock File](https://github.com/bower/bower/issues/505)
 - [Yeoman](http://yeoman.io/) generator
 	- Default templates
 		- AMD module

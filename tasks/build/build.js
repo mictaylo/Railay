@@ -13,7 +13,7 @@ module.exports = function (gulp, config, $) {
 		);
 	});
 
-	gulp.task('build-dist-final', function (callback) {
+	gulp.task('build-dist-final', function () {
 		var assets = $.useref.assets({searchPath: ['.']});
 		var cssFilter = $.filter(['**/*.css']);
 		var jsFilter = $.filter('**/*.js');
