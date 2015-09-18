@@ -45,6 +45,10 @@
 
     `npm install gulp -g`
     
+1. Install SASS so that Chrome can tie source maps back to the SASS line number
+
+	`gem install sass`
+    
 ## Every Time Setup
 1. Grab a copy of the project from GitHub.
 
