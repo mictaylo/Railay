@@ -25,10 +25,20 @@
 
 ## First time setup
 
+1. Grab a copy of the project from GitHub.
+
+	`git clone https://github.com/keobrien/Railay.git`
+
 1. Install Node.js/npm by downloading at [nodejs.org](http://nodejs.org)
+1. Install bower globally
+
+	`npm install bower -g`
+
 1. To make gulp commands easier, install the gulp package globally
 
     `npm install gulp -g`
+    
+## Every Time Setup
 
 1. Install Node dependancies
 
