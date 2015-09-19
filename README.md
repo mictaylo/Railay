@@ -32,6 +32,9 @@
 	- Dev notes:
 		- `npm install -g generator-generator`
 		- `npm link`
+- [gulp-jsdoc](https://www.npmjs.com/package/gulp-jsdoc)
+- [SASS Doc](http://sassdoc.com/gulp/)
+- Use NodeJS to scan modules directory and auto-generate a sitemap of examples that use the base template
 
 # Install Instructions
 
