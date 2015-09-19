@@ -1,7 +1,7 @@
 'use strict';
 
 require(['config'], function (config) {
-	require(['cw-amd/loader', 'ngExample/app'], function (amdLoader) {
+	require(['cw-amd/loader'], function (amdLoader) {
 		amdLoader.setup();
 	});
 });

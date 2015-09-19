@@ -15,6 +15,7 @@
 - [RequireJS](http://requirejs.org/)
 	- Assumption: Any Javascript in the /modules folder will be loaded by RequireJS
 	- Karma/Jasmin is configured to test Javascript in the /modules folder as RequireJS modules
+	- AMD [AngularJS](https://angularjs.org/) example with Karma/Jasmine
 
 ## Features Wish List
 - [PostCSS](https://github.com/postcss/postcss)
