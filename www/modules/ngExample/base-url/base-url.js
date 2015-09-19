@@ -1,7 +1,9 @@
 'use strict';
 
-define([
-	'./base-url-module',
-	'./base-url-config'
-], function () {
-});
+define(
+	[
+		'./base-url-module',
+		'./base-url-config'
+	], function () {
+	}
+);

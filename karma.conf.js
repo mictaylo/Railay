@@ -16,10 +16,10 @@ module.exports = function(config) {
         exclude: gulpConfig.karma.options.exclude,
 
         proxies: {
-            '/': 'http://localhost:8888/'
+			'/base/dist/bower_components/': '/base/bower_components/'
         },
 
-		urlRoot: '__karma__',
+		//urlRoot: '__karma__',
 
         // preprocess matching files before serving them to the browser
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
