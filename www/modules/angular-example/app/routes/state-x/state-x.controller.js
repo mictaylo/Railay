@@ -1,15 +1,21 @@
 'use strict';
 
-define(['../../app.module'], function (app) {
+define(['angular', '../../app.module'], function (angular, app) {
 
 	app.controller('StateXController', stateXController);
+
+	var scopeDefaults = {
+		controllerHasInitialized: true
+	};
 
 	stateXController.$inject = [
 		'$scope'
 	];
 
 	function stateXController ($scope) {
-		$scope.controllerHasInitialized = true;
+
+		angular.extend($scope, scopeDefaults);
+
 	}
 
 	return stateXController;

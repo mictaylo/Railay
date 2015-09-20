@@ -6,18 +6,23 @@ define(
 		'./state-x/state-x.controller'
 	],
 	function (app) {
-		app.config(function ($stateProvider) {
+		app.config(route);
+
+		function route ($stateProvider) {
+
 			$stateProvider
 				.state('state-x', {
 					url  : '',
 					views: {
 						'main': {
-							templateUrl: ':app_template_root/app/routes/state-x/state-x.html',
+							templateUrl: '::baseUrl-appRoot/app/routes/state-x/state-x.html',
 							controller : 'StateXController'
 						}
 					}
 				});
 
-		});
+		}
+
+		return route;
 	}
 );

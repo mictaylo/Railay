@@ -2,7 +2,7 @@
 
 define(
 	[
-		'./base-url-module',
-		'./base-url-config'
-	], function () {}
+		'./base-url.module',
+		'./base-url.config'
+	]
 );

@@ -7,6 +7,6 @@ define(
 		'../base-url/base-url'
 	],
 	function (angular) {
-		return angular.module('ngExample', ['ui.router', 'base-url']);
+		return angular.module('ngExample', ['ui.router', 'baseUrl']);
 	}
 );
