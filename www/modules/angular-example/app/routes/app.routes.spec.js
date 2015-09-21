@@ -4,18 +4,29 @@
 
 define(
 	[
+		'require',
 		'angular-mocks',
 		'./app.routes'
 	],
-	function (angularMocks, ngItem) {
+	function (require, angularMocks, ngItem) {
 
 		describe('ngExample routes', function () {
 
-			beforeEach(module('ngExample', function ($provide) {
-			}));
+			var myServiceMock,
+				state = 'state-x';
 
-			it('should handle state-x', inject(function ($window) {
-				//expect(false).toBe(true);
+			beforeEach(module('ngExample', function () {}));
+
+			it('should handle state-x', inject(function ($rootScope, $state, $injector, $templateCache) {
+
+				$templateCache.put(require.toUrl('../') + 'routes/state-x/state-x.html', '');
+
+				expect($state.href(state, {})).toEqual('#');
+
+				$state.go('state-x');
+				$rootScope.$digest();
+				expect($state.current.name).toBe(state);
+
 			}));
 
 		});

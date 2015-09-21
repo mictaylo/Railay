@@ -25,7 +25,7 @@ define(
 				expect(httpProvider.interceptors).toContain('baseUrlProvider');
 			}));
 
-			it('should replace GET :app_template_root/ with parent folder path', inject(function ($httpBackend, $http) {
+			it('should replace GET ::baseUrl-appRoot/ with app root path', inject(function ($httpBackend, $http) {
 				$httpBackend.expectGET(require.toUrl('../')).respond(200, '');
 				$http.get('::baseUrl-appRoot/');
 				$httpBackend.flush();
@@ -33,7 +33,7 @@ define(
 				$httpBackend.verifyNoOutstandingRequest();
 			}));
 
-			it('should replace POST :app_template_root/ with parent folder path', inject(function ($httpBackend, $http) {
+			it('should replace POST ::baseUrl-appRoot/ with  app root path', inject(function ($httpBackend, $http) {
 				$httpBackend.expectPOST(require.toUrl('../')).respond(200, '');
 				$http.post('::baseUrl-appRoot/', {msg:'hello word!'});
 				$httpBackend.flush();
@@ -41,7 +41,7 @@ define(
 				$httpBackend.verifyNoOutstandingRequest();
 			}));
 
-			it('should replace http({}) :app_template_root/ with parent folder path', inject(function ($httpBackend, $http) {
+			it('should replace http({}) ::baseUrl-appRoot/ with  app root path', inject(function ($httpBackend, $http) {
 				$httpBackend.expectPOST(require.toUrl('../')).respond(200, '');
 				$http({
 					method: 'POST',

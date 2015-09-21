@@ -6,6 +6,7 @@ define(
 		'./state-x/state-x.controller'
 	],
 	function (app) {
+
 		app.config(route);
 
 		function route ($stateProvider) {
@@ -13,6 +14,9 @@ define(
 			$stateProvider
 				.state('state-x', {
 					url  : '',
+					resolve: {
+						data: [function(){}]
+					},
 					views: {
 						'main': {
 							templateUrl: '::baseUrl-appRoot/app/routes/state-x/state-x.html',
