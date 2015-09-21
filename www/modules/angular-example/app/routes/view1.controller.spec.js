@@ -6,11 +6,11 @@ define(
 	[
 		'angular',
 		'angular-mocks',
-		'./state-x.controller'
+		'./view1.controller'
 	],
 	function (angular, angularMocks, ngItem) {
 
-		describe('state-x Controller', function () {
+		describe('default sate controller', function () {
 
 			beforeEach(module('ngExample'));
 
@@ -18,7 +18,7 @@ define(
 
 				var scope = {};
 
-				$controller('StateXController', {$scope: scope});
+				$controller('View1Controller', {$scope: scope});
 
 				expect(scope.controllerHasInitialized).toBe(true);
 			}));

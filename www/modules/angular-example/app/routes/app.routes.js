@@ -3,7 +3,7 @@
 define(
 	[
 		'../app.module',
-		'./state-x/state-x.controller'
+		'./view1.controller'
 	],
 	function (app) {
 
@@ -12,15 +12,16 @@ define(
 		function route ($stateProvider) {
 
 			$stateProvider
-				.state('state-x', {
-					url  : '',
+				.state('default', {
+					url    : '',
 					resolve: {
-						data: [function(){}]
+						data: [function () {
+						}]
 					},
-					views: {
+					views  : {
 						'main': {
-							templateUrl: '::baseUrl-appRoot/app/routes/state-x/state-x.html',
-							controller : 'StateXController'
+							templateUrl: '::baseUrl-appRoot/app/routes/view1.html',
+							controller : 'View1Controller'
 						}
 					}
 				});

@@ -1,8 +1,8 @@
 'use strict';
 
-define(['angular', '../../app.module'], function (angular, app) {
+define(['angular', '../app.module'], function (angular, app) {
 
-	app.controller('StateXController', stateXController);
+	app.controller('View1Controller', stateXController);
 
 	var scopeDefaults = {
 		controllerHasInitialized: true
