@@ -70,20 +70,44 @@ module.exports = function (gulp, config, $) {
 	});
 
 	var watchedFiles = [
-		config.paths.www + config.js.sourceFiles,
-		config.paths.www + config.swig.sourceFiles
+		config.paths.www + '**/*'
+		//config.paths.www + config.js.sourceFiles,
+		//config.paths.www + config.swig.sourceFiles,
+		//config.paths.www + config.sass.sourceFiles
 	];
+
 	gulp.task('watch-build-dev', ['build-dev'], function () {
-		gulp.watch(config.paths.www + config.sass.sourceFiles, ['sass']);
-		return gulp.watch(watchedFiles, ['build-dev']);
+		var watch = require('gulp-watch');
+
+		return watch(watchedFiles, function(file){
+			if(file.extname === '.scss') {
+				gulp.start('sass');
+			}else {
+				gulp.start('build-dev');
+			}
+		});
 	});
 	gulp.task('watch-build-test', ['build-test'], function () {
-		gulp.watch(config.paths.www + config.sass.sourceFiles, ['sass']);
-		return gulp.watch(watchedFiles, ['build-test']);
+		var watch = require('gulp-watch');
+
+		return watch(watchedFiles, function(file){
+			if(file.extname === '.scss') {
+				gulp.start('sass');
+			}else {
+				gulp.start('build-test');
+			}
+		});
 	});
 	gulp.task('watch-build-dist', ['build-dist'], function () {
-		gulp.watch(config.paths.www + config.sass.sourceFiles, ['sass']);
-		return gulp.watch(watchedFiles, ['build-dist']);
+		var watch = require('gulp-watch');
+
+		return watch(watchedFiles, function(file){
+			if(file.extname === '.scss') {
+				gulp.start('sass');
+			}else {
+				gulp.start('build-dist');
+			}
+		});
 	});
 
 };
