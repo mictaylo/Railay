@@ -48,5 +48,10 @@
     "run-sequence": "^1.1.2",
     "wiredep": "^2.2.2",
     "yeoman-generator": "^0.20.3"
+  },
+  "scripts" : {
+    "start" : "node node_modules/gulp/bin/gulp.js serve-dev",
+    "test"  : "node node_modules/gulp/bin/gulp.js serve-test",
+    "build" : "node node_modules/gulp/bin/gulp.js serve-dist"
   }
 }
