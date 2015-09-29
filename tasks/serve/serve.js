@@ -24,8 +24,8 @@ module.exports = function (gulp, config, $) {
 		var runSequence = require('run-sequence').use(gulp);
 
 		runSequence(
-			['watch-build-dev'],
-			['serve-dev-start'],
+			'watch-build-dev',
+			'serve-dev-start',
 			callback
 		);
 	});

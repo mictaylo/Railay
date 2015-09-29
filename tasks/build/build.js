@@ -79,35 +79,41 @@ module.exports = function (gulp, config, $) {
 	gulp.task('watch-build-dev', ['build-dev'], function () {
 		var watch = require('gulp-watch');
 
-		return watch(watchedFiles, function(file){
+		watch(watchedFiles, function(file){
 			if(file.extname === '.scss') {
 				gulp.start('sass');
 			}else {
 				gulp.start('build-dev');
 			}
 		});
+
+		return gulp;
 	});
 	gulp.task('watch-build-test', ['build-test'], function () {
 		var watch = require('gulp-watch');
 
-		return watch(watchedFiles, function(file){
+		watch(watchedFiles, function(file){
 			if(file.extname === '.scss') {
 				gulp.start('sass');
 			}else {
 				gulp.start('build-test');
 			}
 		});
+
+		return gulp;
 	});
 	gulp.task('watch-build-dist', ['build-dist'], function () {
 		var watch = require('gulp-watch');
 
-		return watch(watchedFiles, function(file){
+		watch(watchedFiles, function(file){
 			if(file.extname === '.scss') {
 				gulp.start('sass');
 			}else {
 				gulp.start('build-dist');
 			}
 		});
+
+		return gulp;
 	});
 
 };
