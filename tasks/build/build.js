@@ -6,9 +6,7 @@ module.exports = function (gulp, config, $) {
 		var runSequence = require('run-sequence').use(gulp);
 
 		runSequence(
-			['del-dist'],
-			['copy-src-to-dist'],
-			['sass', 'babel'],
+			['sync', 'sass', 'babel'],
 			callback
 		);
 	});
@@ -75,9 +73,8 @@ module.exports = function (gulp, config, $) {
 		var runSequence = require('run-sequence').use(gulp);
 
 		runSequence(
-			['sync-rebuild'],
-			['sass', 'babel'],
-			'build-dist-final',
+			['sync', 'sass', 'babel'],
+			['build-dist-final'],
 			callback
 		);
 	});
@@ -87,7 +84,7 @@ module.exports = function (gulp, config, $) {
 		var runSequence = require('run-sequence').use(gulp);
 
 		runSequence(
-			['build-dev'],
+			['sync', 'sass', 'babel'],
 			['test', 'vet'],
 			callback
 		);
@@ -98,7 +95,7 @@ module.exports = function (gulp, config, $) {
 		return gulp.src( '' )
 			.pipe(dirSync( config.paths.www, config.paths.destination, {
 				printSummary: true,
-				ignore: [ /^\.svn$/i, /.*\.min\.css$/, /.*\.map/ ]
+				ignore: [ /.*\.min\.css$/, /.*\.map/ ]
 			} ))
 	});
 
@@ -107,7 +104,7 @@ module.exports = function (gulp, config, $) {
 		return gulp.src( '' )
 			.pipe(dirSync( config.paths.www, config.paths.destination, {
 				printSummary: true,
-				ignore: [ /^\.svn$/i ]
+				ignore: []
 			} ))
 	});
 
@@ -121,7 +118,7 @@ module.exports = function (gulp, config, $) {
 
 		watch(watchedFiles, function(file){
 			runSequence(
-				['sync', 'sass', 'babel']
+				['build-dev']
 			);
 		});
 
@@ -133,8 +130,7 @@ module.exports = function (gulp, config, $) {
 
 		watch(watchedFiles, function(file){
 			runSequence(
-				['sync', 'sass', 'babel'],
-				['test', 'vet']
+				['build-test']
 			);
 		});
 
@@ -146,8 +142,7 @@ module.exports = function (gulp, config, $) {
 
 		watch(watchedFiles, function(file){
 			runSequence(
-				['sync', 'sass', 'babel'],
-				['build-dist-final']
+				['build-dist']
 			);
 		});
 
