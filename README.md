@@ -44,10 +44,6 @@
 
 	`npm install bower -g`
 
-1. To make gulp commands easier, install the gulp package globally
-
-    `npm install gulp -g`
-    
 1. Install SASS so that Chrome can tie source maps back to the SASS line number
 
 	`gem install sass`
@@ -69,17 +65,17 @@
 
 ### Dev mode
 
-1. `gulp serve-dev`
+1. `npm start`
 1. Go to [localhost:3000](http://localhost:3000)
 
 
 ### Test mode and watch files to run tests/linting
 
-1. `gulp serve-test`
+1. `npm test`
 1. Go to [localhost:3000](http://localhost:3000)
 
 
 ### Compiled mode
 
-1. `gulp serve-dist`
+1. `npm run-script build`
 1. Go to [localhost:3000](http://localhost:3000)

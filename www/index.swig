@@ -1,4 +1,4 @@
-{% extends '_partials/page.swig' %}
+{% extends '_partials/base.swig' %}
 
 {% block body-content %}
 	{% include 'modules/styleguide/styleguide.swig' %}

@@ -22,5 +22,4 @@
 
 	var name = 'Bob', time = 'today';
 	console.info(`Hello ${name}, how are you ${time}?`);
-
 }());
