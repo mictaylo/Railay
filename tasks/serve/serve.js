@@ -4,28 +4,37 @@ module.exports = function (gulp, config, $) {
 
 	gulp.task('serve-dev-start', function (callback) {
 
-		$.nodemon({
-			script: config.serve.index,
-			ext   : 'js',
-			ignore: [],
-			tasks : [],
-			watch : config.serve.watch,
-			env: { 'NODE_ENV': 'development' }
-		})
-		.on('restart', function () {
-			console.log('restarted!');
-		});
+		var started = false;
 
-		callback();
+		return $.nodemon({
+				script: config.serve.index,
+				ext   : 'js',
+				ignore: [],
+				tasks : [],
+				watch : config.serve.watch,
+				env: { 'NODE_ENV': 'development' }
+			})
+			.on('restart', function () {
+				console.log('restarted!');
+			})
+			.on('start', function () {
+				if (!started) {
+					callback();
+					started = true;
+				}
+			})
+			.on('exit', function () {
+				process.exit(0);
+			});
 	});
 
 	gulp.task('serve-dev', function (callback) {
 
 		var runSequence = require('run-sequence').use(gulp);
 
-		runSequence(
-			['watch-build-dev'],
-			['serve-dev-start'],
+		return runSequence(
+			'watch-build-dev',
+			'serve-dev-start',
 			callback
 		);
 	});
@@ -43,19 +52,29 @@ module.exports = function (gulp, config, $) {
 
 	gulp.task('serve-start', function (callback) {
 
-		$.nodemon({
-			script: config.serve.index,
-			ext   : 'js',
-			ignore: [],
-			tasks : [],
-			watch : config.serve.watch,
-			env: { 'NODE_ENV': 'production' }
-		})
-		.on('restart', function () {
-			console.log('restarted!');
-		});
+		var started = false;
 
-		callback();
+		return $.nodemon({
+				script: config.serve.index,
+				ext   : 'js',
+				ignore: [],
+				tasks : [],
+				watch : config.serve.watch,
+				env: { 'NODE_ENV': 'production' }
+			})
+			.on('restart', function () {
+				console.log('restarted!');
+			})
+			.on('start', function () {
+				if (!started) {
+					callback();
+					started = true;
+				}
+			})
+			.on('exit', function () {
+				process.exit(0);
+			});
+
 	});
 
 	gulp.task('serve-dist', function () {

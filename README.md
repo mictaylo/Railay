@@ -40,14 +40,7 @@
 ## First time setup
 
 1. Install Node.js/npm by downloading at [nodejs.org](http://nodejs.org)
-1. Install bower globally
 
-	`npm install bower -g`
-
-1. To make gulp commands easier, install the gulp package globally
-
-    `npm install gulp -g`
-    
 1. Install SASS so that Chrome can tie source maps back to the SASS line number
 
 	`gem install sass`
@@ -57,29 +50,48 @@
 
 	`git clone https://github.com/keobrien/Railay.git`
 
-1. Install Node dependancies
+1. Install Node and Bower dependancies
 
     `npm install`
-
-1. Install Bower dependancies
-
-    `bower install`
 
 ## Run
 
 ### Dev mode
 
-1. `gulp serve-dev`
+1. `npm start`
 1. Go to [localhost:3000](http://localhost:3000)
 
 
 ### Test mode and watch files to run tests/linting
 
-1. `gulp serve-test`
+1. `npm test`
 1. Go to [localhost:3000](http://localhost:3000)
 
 
 ### Compiled mode
 
-1. `gulp serve-dist`
+1. `npm run-script build`
 1. Go to [localhost:3000](http://localhost:3000)
+
+## Advanced Commands
+
+These commands will run the local versions of Gulp or Bower rather than needing to install them globally
+
+### Gulp
+
+1. `npm run-script gulp -- serve-dev`
+1. `npm run-script gulp -- serve-test`
+1. `npm run-script gulp -- serve-dist`
+
+This can be used to run any gulp task defined.  It will use the local project version rather than a global.
+
+Alternatively you gou also run `npm install gulp -g` and use `gulp serve-dev`
+
+### Bower
+
+1. `npm run-script bower -- install jquery`
+1. `npm run-script bower -- install jquery --save-dev`
+
+This can be used to run any Bower command.  It will use the local project version rather than a global.
+
+Alternatively you gou also run `npm install bower -g` and use `bower install jquery`

@@ -7,6 +7,7 @@ module.exports = function (gulp, config, $) {
 		var sourcemaps = require('gulp-sourcemaps');
 		var cache = require('gulp-cached');
 		var remember = require('gulp-remember');
+		var rename = require('gulp-rename');
 
 		return gulp.src(config.paths.www + config.sass.sourceFiles)
 			//.pipe($.print())
@@ -16,6 +17,9 @@ module.exports = function (gulp, config, $) {
 			.pipe(sass().on('error', sass.logError))
 			//.pipe(remember('compile-sass'))
 			.pipe($.minifyCss())
+			.pipe(rename({
+				suffix: '.min'
+			}))
 			.pipe(sourcemaps.write(config.sass.maps))
 			.pipe(gulp.dest(config.sass.destination));
 	});
